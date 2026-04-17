@@ -1,0 +1,125 @@
+rule_data:
+  trusted_task_rules:
+    allow:
+      - name: apply-tags
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-apply-tags:*"
+      - name: build-helm-chart
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart:*"
+      - name: build-helm-chart-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart-oci-ta:*"
+      - name: build-image-index
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index:*"
+      - name: build-image-index-min
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index-min:*"
+      - name: build-image-manifest
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-image-manifest:*"
+      - name: build-maven-zip
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-maven-zip:*"
+      - name: build-maven-zip-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-maven-zip-oci-ta:*"
+      - name: build-paketo-builder-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-paketo-builder-oci-ta:*"
+      - name: build-vm-image
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-vm-image:*"
+      - name: buildah
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah:*"
+      - name: buildah-min
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-min:*"
+      - name: buildah-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta:*"
+      - name: buildah-oci-ta-min
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta-min:*"
+      - name: buildah-remote
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote:*"
+      - name: buildah-remote-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote-oci-ta:*"
+      - name: clair-scan
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-clair-scan:*"
+      - name: clamav-scan
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-clamav-scan:*"
+      - name: deprecated-image-check
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-deprecated-image-check:*"
+      - name: eaas-provision-space
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-eaas-provision-space:*"
+      - name: ecosystem-cert-preflight-checks
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-ecosystem-cert-preflight-checks:*"
+      - name: fbc-fips-check
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check:*"
+      - name: fbc-fips-check-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta:*"
+      - name: fbc-target-index-pruning-check
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fbc-target-index-pruning-check:*"
+      - name: fips-operator-bundle-check
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fips-operator-bundle-check:*"
+      - name: fips-operator-bundle-check-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fips-operator-bundle-check-oci-ta:*"
+      - name: generate-labels
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-generate-labels:*"
+      - name: git-clone
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-git-clone:*"
+      - name: git-clone-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-git-clone-oci-ta:*"
+      - name: git-clone-oci-ta-min
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-git-clone-oci-ta-min:*"
+      - name: github-sarif-upload
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-github-sarif-upload:*"
+      - name: init
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-init:*"
+      - name: ko-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-ko-oci-ta:*"
+      - name: modelcar-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-modelcar-oci-ta:*"
+      - name: oci-copy
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-oci-copy:*"
+      - name: oci-copy-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-oci-copy-oci-ta:*"
+      - name: operator-sdk-generate-bundle
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-operator-sdk-generate-bundle:*"
+      - name: opm-get-bundle-version
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-opm-get-bundle-version:*"
+      - name: opm-render-bundles
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-opm-render-bundles:*"
+      - name: package-operator-package
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-package-operator-package:*"
+      - name: package-operator-package-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-package-operator-package-oci-ta:*"
+      - name: pnc-prebuild-git-clone-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-pnc-prebuild-git-clone-oci-ta:*"
+      - name: prefetch-dependencies
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies:*"
+      - name: prefetch-dependencies-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:*"
+      - name: prefetch-dependencies-oci-ta-min
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta-min:*"
+      - name: push-dockerfile
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile:*"
+      - name: push-dockerfile-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile-oci-ta:*"
+      - name: run-opm-command-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-run-opm-command-oci-ta:*"
+      - name: run-script-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-run-script-oci-ta:*"
+      - name: sbom-json-check
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-sbom-json-check:*"
+      - name: show-sbom
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-show-sbom:*"
+      - name: slack-webhook-notification
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification:*"
+      - name: slack-webhook-notification-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification-oci-ta:*"
+      - name: source-build
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-source-build:*"
+      - name: source-build-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-source-build-oci-ta:*"
+      - name: summary
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-summary:*"
+      - name: tkn-bundle
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-tkn-bundle:*"
+      - name: tkn-bundle-oci-ta
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-tkn-bundle-oci-ta:*"
+      - name: update-infra-deployments
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-update-infra-deployments:*"
+      - name: validate-fbc
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-validate-fbc:*"
+      - name: verify-source
+        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-verify-source:*"
