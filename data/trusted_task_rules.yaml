@@ -1,125 +1,402 @@
 rule_data:
   trusted_task_rules:
+    # Note that the values of the keys under `deny:` and `allow:` are not
+    # signficant. They are needed so trusted task rules from from different
+    # sources can be merged together. For that reason they should be unique
+    # enough to avoid clashing with the key used by trusted tasks from other
+    # sources.
+
     allow:
-      - name: apply-tags
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-apply-tags:*"
-      - name: build-helm-chart
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart:*"
-      - name: build-helm-chart-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart-oci-ta:*"
-      - name: build-image-index
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index:*"
-      - name: build-image-index-min
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index-min:*"
-      - name: build-image-manifest
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-image-manifest:*"
-      - name: build-maven-zip
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-maven-zip:*"
-      - name: build-maven-zip-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-maven-zip-oci-ta:*"
-      - name: build-paketo-builder-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-paketo-builder-oci-ta:*"
-      - name: build-vm-image
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-build-vm-image:*"
-      - name: buildah
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah:*"
-      - name: buildah-min
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-min:*"
-      - name: buildah-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta:*"
-      - name: buildah-oci-ta-min
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta-min:*"
-      - name: buildah-remote
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote:*"
-      - name: buildah-remote-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote-oci-ta:*"
-      - name: clair-scan
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-clair-scan:*"
-      - name: clamav-scan
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-clamav-scan:*"
-      - name: deprecated-image-check
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-deprecated-image-check:*"
-      - name: eaas-provision-space
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-eaas-provision-space:*"
-      - name: ecosystem-cert-preflight-checks
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-ecosystem-cert-preflight-checks:*"
-      - name: fbc-fips-check
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check:*"
-      - name: fbc-fips-check-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta:*"
-      - name: fbc-target-index-pruning-check
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fbc-target-index-pruning-check:*"
-      - name: fips-operator-bundle-check
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fips-operator-bundle-check:*"
-      - name: fips-operator-bundle-check-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-fips-operator-bundle-check-oci-ta:*"
-      - name: generate-labels
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-generate-labels:*"
-      - name: git-clone
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-git-clone:*"
-      - name: git-clone-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-git-clone-oci-ta:*"
-      - name: git-clone-oci-ta-min
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-git-clone-oci-ta-min:*"
-      - name: github-sarif-upload
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-github-sarif-upload:*"
-      - name: init
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-init:*"
-      - name: ko-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-ko-oci-ta:*"
-      - name: modelcar-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-modelcar-oci-ta:*"
-      - name: oci-copy
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-oci-copy:*"
-      - name: oci-copy-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-oci-copy-oci-ta:*"
-      - name: operator-sdk-generate-bundle
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-operator-sdk-generate-bundle:*"
-      - name: opm-get-bundle-version
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-opm-get-bundle-version:*"
-      - name: opm-render-bundles
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-opm-render-bundles:*"
-      - name: package-operator-package
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-package-operator-package:*"
-      - name: package-operator-package-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-package-operator-package-oci-ta:*"
-      - name: pnc-prebuild-git-clone-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-pnc-prebuild-git-clone-oci-ta:*"
-      - name: prefetch-dependencies
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies:*"
-      - name: prefetch-dependencies-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:*"
-      - name: prefetch-dependencies-oci-ta-min
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta-min:*"
-      - name: push-dockerfile
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile:*"
-      - name: push-dockerfile-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile-oci-ta:*"
-      - name: run-opm-command-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-run-opm-command-oci-ta:*"
-      - name: run-script-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-run-script-oci-ta:*"
-      - name: sbom-json-check
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-sbom-json-check:*"
-      - name: show-sbom
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-show-sbom:*"
-      - name: slack-webhook-notification
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification:*"
-      - name: slack-webhook-notification-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification-oci-ta:*"
-      - name: source-build
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-source-build:*"
-      - name: source-build-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-source-build-oci-ta:*"
-      - name: summary
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-summary:*"
-      - name: tkn-bundle
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-tkn-bundle:*"
-      - name: tkn-bundle-oci-ta
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-tkn-bundle-oci-ta:*"
-      - name: update-infra-deployments
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-update-infra-deployments:*"
-      - name: validate-fbc
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-validate-fbc:*"
-      - name: verify-source
-        pattern: "oci://quay.io/konflux-ci/tekton-catalog/task-verify-source:*"
+      konflux-defaults:
+        # The main Konflux build-definitions task catalog
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-*
+
+        # Konflux task catalogs for tasks not maintained in build-definitions
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-*
+        - pattern: oci://quay.io/konflux-ci/konflux-vanguard/*
+
+        # For RoK RPM builds
+        # Note: This probably won't work right away since we don't yet support git resolved tasks
+        # (In the longer term I think we should aim to build tekton bundles for these)
+        - pattern: git+https://gitlab.cee.redhat.com/rhel-on-konflux/rpmbuild-pipeline.git//task/*
+
+        # Found in quay.io/konflux-ci/ose-osc-tenant/data-acceptable-bundles
+        # (Probably should be moved out of here and placed in the appropriate
+        # ECP since I assume it's for one specific team.)
+        - oci://quay.io/konflux-ci/ose-osc-tenant/build-dm-verity-image-task
+
+    deny:
+      konflux-defaults:
+        # Source: konflux-ci/integration-service-catalog
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-clair-scan
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-clamav-scan
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-deprecated-image-check
+          versions: ['<0.4']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-deprecated-image-check
+          versions: ['<0.5']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-fbc-fips-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-fbc-target-index-pruning-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-fips-operator-bundle-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-sbom-json-check
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/integration-service-catalog/task-validate-fbc
+          versions: ['<0.1']
+
+        # Source: konflux-ci/konflux-vanguard
+        - pattern: oci://quay.io/konflux-ci/konflux-vanguard/task-rpms-signature-scan
+          versions: ['<0.1']
+
+        # Source: konflux-ci/tekton-catalog
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-acs-deploy-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-acs-image-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-acs-image-scan
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-apply-tags
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-apply-tags
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah
+          versions: ['<0.9']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah
+          versions: ['<0.10']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-10gb
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-20gb
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-24gb
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-6gb
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-8gb
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-min
+          versions: ['<0.9']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-min
+          versions: ['<0.10']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta
+          versions: ['<0.9']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta
+          versions: ['<0.10']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta-min
+          versions: ['<0.10']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote
+          versions: ['<0.9']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote
+          versions: ['<0.10']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote-oci-ta
+          versions: ['<0.9']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-remote-oci-ta
+          versions: ['<0.10']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-buildah-rhtap
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-helm-chart-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-image-index-min
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-image-manifest
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-maven-zip
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-maven-zip-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-paketo-builder-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-build-vm-image
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-clair-scan
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-clair-scan
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-clair-scan-min
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-clamav-scan
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-clamav-scan
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-clamav-scan-min
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-coverity-availability-check
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-coverity-availability-check-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-deprecated-image-check
+          versions: ['<0.4']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-deprecated-image-check
+          versions: ['<0.5']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-download-sbom-from-url-in-attestation
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-eaas-provision-space
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-ecosystem-cert-preflight-checks
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-matrix-based-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-fips-prepare-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-related-image-check
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-target-index-pruning-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fbc-validation
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fetch-data-to-trusted-artifact
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fips-operator-bundle-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-fips-operator-bundle-check-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-gather-deploy-images
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-generate-labels
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-generate-odcs-compose
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-git-clone
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-git-clone-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-git-clone-oci-ta-min
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-github-sarif-upload
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-init
+          versions: ['<0.3']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-init
+          versions: ['<0.4']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-inspect-image
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-ko-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-modelcar-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-oci-copy
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-oci-copy-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-operator-sdk-generate-bundle
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-opm-get-bundle-version
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-opm-render-bundles
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-package-operator-package
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-package-operator-package-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-pnc-prebuild-git-clone-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta-min
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-provision-env-with-ephemeral-namespace
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-push-dockerfile-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-reduce-snapshot-to-single-component
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-roxctl-scan
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-rpm-ostree
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-rpm-ostree-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-rpms-signature-scan
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-run-opm-command-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-run-script-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-s2i-java
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-s2i-nodejs
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-coverity-check
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-coverity-check
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-coverity-check-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-coverity-check-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-gitleaks-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-shell-check
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-shell-check-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-shell-check-oci-ta-min
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-snyk-check
+          versions: ['<0.3']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-snyk-check
+          versions: ['<0.4']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-snyk-check-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-snyk-check-oci-ta
+          versions: ['<0.4']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check
+          versions: ['<0.3']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check
+          versions: ['<0.4']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check-oci-ta
+          versions: ['<0.4']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check-oci-ta-min
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sbom-json-check
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sealights-go-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sealights-nodejs-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-sealights-python-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-show-sbom
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-show-sbom-rhdh
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification-oci-ta
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-source-build
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-source-build
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-source-build-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-07-04"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-source-build-oci-ta
+          versions: ['<0.3']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-summary
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-tkn-bundle
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-tkn-bundle-oci-ta
+          versions: ['<0.2']
+          effective_on: "2026-08-03"
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-tpa-scan
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-update-deployment
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-update-infra-deployments
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-upload-sbom-to-trustification
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-validate-fbc
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-verify-enterprise-contract
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-verify-signed-rpms
+          versions: ['<0.1']
+        - pattern: oci://quay.io/konflux-ci/tekton-catalog/task-verify-source
+          versions: ['<0.1']
+
